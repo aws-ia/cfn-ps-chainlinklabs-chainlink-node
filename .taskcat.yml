@@ -1,5 +1,5 @@
 project:
-  name: quickstart-chainlinklabs-chainlink-node
+  name: cfn-ps-chainlinklabs-chainlink-node
   regions:
   # only able to test in region with SSL certificates set up through AWS Certificate Manager with the SSL Certificate ARN
     #- af-south-1
