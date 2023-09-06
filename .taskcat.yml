@@ -1,33 +1,40 @@
 project:
-  name: cfn-sample-template
-  owner: quickstart@amazon.com
-  package_lambda: false
+  name: quickstart-chainlinklabs-chainlink-node
   regions:
-  - ap-northeast-1
-  - ap-northeast-2
-  - ap-southeast-1
-  - ap-southeast-2
-  - eu-central-1
-  - eu-west-1
-  - sa-east-1
-  - us-east-1
-  - us-west-1
-  - us-west-2
+  # only able to test in region with SSL certificates set up through AWS Certificate Manager with the SSL Certificate ARN
+    #- af-south-1
+    #- ap-east-1
+    #- ap-south-1
+    #- ap-northeast-3
+    #- ap-northeast-2
+    - ap-southeast-1
+    #- ap-southeast-2
+    #- ap-northeast-1
+    #- ca-central-1
+    # - cn-north-1
+    # - cn-northwest-1
+    #- eu-central-1
+    #- eu-west-1
+    #- eu-west-2
+    #- eu-south-1
+    #- eu-west-3
+    #- eu-north-1
+    #- me-south-1
+    #- sa-east-1
+    #- us-east-1
+    #- us-east-2
+    #- us-west-1
+    #- us-west-2
 tests:
-  sample:
+  default:
+    template: ./templates/quickstart-chainlink-node-entrypoint.template.yaml
     parameters:
-      Param1: 'Inputs to Stack'
-      # Examples: of other taskcat dynamic input parameters for more into see http://taskcat.io
-      #
-      #      AvailabilityZones: $[taskcat_genaz_3]
-      #      ByteValue: 1
-      #      PasswordA: $[taskcat_genpass_8A]
-      #      PasswordB: $[taskcat_genpass_32S]
-      #      RandomNumber: $[taskcat_random-numbers]
-      #      RandomString: $[taskcat_random-string]
-      #      StackName: TestStack
-      #      UUID: $[taskcat_genuuid]
-      #
-    regions:
-    - us-east-2
-    template: templates/another-workload.template.yaml
+      AvailabilityZones: $[taskcat_genaz_2]
+      KeyPairName: override
+      ChainlinkNodeGUIPassword:  $[taskcat_genpass_16S]
+      NodeWalletPassword:  $[taskcat_genpass_16S]
+      DBMasterUserPassword:  $[taskcat_genpass_16S]
+      SSLCertificateARN: ''
+      QSS3BucketName: $[taskcat_autobucket]
+      QSS3BucketRegion: $[taskcat_current_region]
+      EnableAmazonDevOpsGuru: 'false'
