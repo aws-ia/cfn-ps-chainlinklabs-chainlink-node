@@ -493,7 +493,7 @@ Parameters:
 Conditions:
   UsingDefaultBucket: !Equals
     - !Ref QSS3BucketName
-    - 'aws-quickstart'
+    - 'aws-ia'
 Resources:
   VPCStack:
     Type: 'AWS::CloudFormation::Stack'

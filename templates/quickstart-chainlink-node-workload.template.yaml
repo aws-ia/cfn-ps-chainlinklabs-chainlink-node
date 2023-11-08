@@ -469,7 +469,7 @@ Parameters:
 Conditions:
   UsingDefaultBucket: !Equals
     - !Ref QSS3BucketName
-    - 'aws-quickstart'
+    - 'aws-ia'
 Resources:
   BastionStack:
     Type: 'AWS::CloudFormation::Stack'
