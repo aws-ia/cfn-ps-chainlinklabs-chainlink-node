@@ -409,23 +409,41 @@ Parameters:
     Description: Specify if the database instance is a multiple Availability Zone deployment.
     Type: String
   DBEngineVersion:
-    Description: The database engine version.
+    Description: >- 
+      Select Database Engine Version. 
+      Aurora Serverless v2 with Aurora PostgreSQL is available in v13.6 & higher, v14.3 & higher, and v15.2 & higher.
+      Aurora I/O-Optimized configuration is available in Aurora PostgreSQL v13.10 and higher, v14.7 and higher, and v15.2 and higher.
+      For supported engines and Region availability for Aurora Serverless v2 with Aurora PostgreSQL, refer https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.Aurora_Fea_Regions_DB-eng.Feature.ServerlessV2.html
     Type: String
-    Default: 11.9
+    Default: 14.7
     AllowedValues:
-      - 9.6.16
-      - 9.6.17
-      - 9.6.18
-      - 9.6.19
-      - 10.11
-      - 10.12
-      - 10.13
-      - 10.14
-      - 11.6
-      - 11.7
-      - 11.8
-      - 11.9
-      - 12.4
+      - 11.13
+      - 11.14
+      - 11.15
+      - 11.16
+      - 11.17
+      - 11.18
+      - 11.19
+      - 12.8
+      - 12.9
+      - 12.10
+      - 12.11
+      - 12.12
+      - 12.13
+      - 12.14
+      - 13.4
+      - 13.5
+      - 13.6
+      - 13.7
+      - 13.8
+      - 13.9
+      - 13.10
+      - 14.3
+      - 14.4
+      - 14.5
+      - 14.6
+      - 14.7
+      - 15.2
   DBInstanceClass:
     AllowedPattern: "db\\.[a-z0-9]*\\.[a-z0-9]*"
     ConstraintDescription: "Must select a valid database instance type."
@@ -507,7 +525,7 @@ Parameters:
 Conditions:
   UsingDefaultBucket: !Equals
     - !Ref QSS3BucketName
-    - 'aws-quickstart'
+    - 'aws-ia'
 Resources:
   VPCStack:
     Type: 'AWS::CloudFormation::Stack'
